@@ -92,14 +92,6 @@
           <label class="chip"><input type="checkbox" id="medAssist" name="medAssist" value="Accompagnement médical"> Accompagnement médical (10 € / heure)</label>
         </fieldset>
 
-        <div class="divider"></div>
-        <div class="step" aria-label="Étape 2b"><div class="num">2b</div><h2>Aide pratique à domicile</h2></div>
-        <fieldset class="choices highlight" aria-labelledby="homeassist-legend">
-          <legend id="homeassist-legend" class="sr-only" style="position:absolute;left:-9999px">Aide pratique</legend>
-          <label class="chip"><input type="checkbox" id="homeAssist" name="homeAssist" value="Aide rangement"> 🏡 Aide au rangement des courses à domicile (+5 €)
-          <span class="hint" style="display:block;margin-top:6px">Pour les produits lourds ou encombrants (packs d’eau, cartons, sacs…)</span></label>
-        </fieldset>
-
         <div id="medBlock" class="highlight" style="display:none;margin-top:10px;">
           <label class="required" for="apptDate">Date du rendez-vous</label>
           <input type="date" id="apptDate" name="apptDate" aria-describedby="med-hint">
@@ -165,7 +157,6 @@
         <details id="recapBox" open style="margin-top:16px">
           <summary>Récapitulatif de votre demande</summary>
           <ul>
-            <li id="recapHomeAssistRow" style="display:none"><span>Aide au rangement</span><strong id="recapHomeAssist">—</strong></li>
             <li><span>Service</span><strong id="recapService">—</strong></li>
             <li><span>Commerces / services</span><strong id="recapShops">—</strong></li>
             <li id="recapMedRow" style="display:none"><span>Rendez-vous médical</span><strong id="recapMed">—</strong></li>
@@ -173,8 +164,6 @@
             <li><span>Créneau</span><strong id="recapSlot">—</strong></li>
             <li><span>Adresse</span><strong id="recapAddress">—</strong></li>
           </ul>
-<div class="divider" style="margin-top:12px"></div>
-<p class="hint" style="margin:8px 0 6px"><strong>Total estimé : <span id="totalEstime">—</span></strong> <br><small>(hors accompagnement médical au km : 10 €/h + 0,50 €/km AR)</small></p>
         </details>
       </form>
     </main>
@@ -197,21 +186,6 @@
     const recapMed = document.getElementById('recapMed');
 
     const photos = document.getElementById('photos');
-    const homeAssist = document.getElementById('homeAssist');
-    const recapHomeAssistRow = document.getElementById('recapHomeAssistRow');
-    const recapHomeAssist = document.getElementById('recapHomeAssist');
-    const totalEstime = document.getElementById('totalEstime');
-
-    function computeTotal(){
-      let base = 0;
-      const svc = form.service.value;
-      if(svc === 'Essentielle') base = 15;
-      else if(svc === 'Confort') base = 20;
-      else if(svc === 'Sérénité') base = 25;
-      if(homeAssist && homeAssist.checked) base += 5;
-      return base > 0 ? base.toFixed(2).replace('.', ',') + ' €' : '—';
-    }
-
     const recapFilesRow = document.getElementById('recapFilesRow');
     const recapFiles = document.getElementById('recapFiles');
 
@@ -264,14 +238,6 @@
       recapShops.textContent = shops.length ? shops.join(', ') + (medAssist.checked ? ', Accompagnement médical' : '') : (medAssist.checked ? 'Accompagnement médical' : '—');
       recapSlot.textContent = slot;
       recapAddress.textContent = address;
-      if(homeAssist && homeAssist.checked){
-        recapHomeAssist.textContent = '+5 € (rangement à domicile)';
-        recapHomeAssistRow.style.display = '';
-      } else {
-        recapHomeAssist.textContent = '—';
-        recapHomeAssistRow.style.display = 'none';
-      }
-      if(totalEstime){ totalEstime.textContent = computeTotal(); }
 
       if(medAssist.checked){
         const d = form.apptDate?.value ? new Date(form.apptDate.value) : null;
@@ -299,7 +265,6 @@
     function toggleMed(){ medBlock.style.display = medAssist.checked ? '' : 'none'; }
 
     document.addEventListener('input', ()=>{ toggleMed(); updateRecap(); });
-    if(homeAssist){ homeAssist.addEventListener('change', updateRecap); }
     document.addEventListener('change', ()=>{ toggleMed(); updateRecap(); });
     photos.addEventListener('change', updateRecap);
 
@@ -326,7 +291,7 @@
         `Adresse : ${form.address.value || '—'}\n`+
         `Liste / Ordonnances / Notes : ${form.list.value || '—'}\n`+
         `Pièces à joindre : ${files}\n`+
-        medLine + `\n` + (homeAssist && homeAssist.checked ? 'Aide au rangement : oui (+5 €)\n' : 'Aide au rangement : non\n') + `Total estimé (hors accompagnement médical au km) : ${computeTotal()}` + `\n`;
+        medLine + `\n`;
     }
 
     function validateAll(){
@@ -367,24 +332,6 @@
         window.location.href = `mailto:milanolove07@msn.com?subject=${subject}&body=${body}`;
       }, 200);
     });
-  
-    // --- Toggle deselect for service radios ---
-    const serviceRadios = form.querySelectorAll('input[name="service"]');
-    let lastCheckedRadio = null;
-    serviceRadios.forEach(r => {
-      r.addEventListener('click', (e) => {
-        if (r === lastCheckedRadio) {
-          r.checked = false;
-          lastCheckedRadio = null;
-          updateRecap();
-          showToast('✅ Formule désélectionnée');
-          e.preventDefault();
-        } else {
-          lastCheckedRadio = r;
-        }
-      });
-    });
-    
-</script>
+  </script>
 </body>
 </html>
