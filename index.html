@@ -60,6 +60,7 @@
 <body>
   <div class="container">
     <header>
+<div style="margin:10px 0;"><a href="tel:+32494118682" class="btn btn-primary" style="display:inline-block;text-decoration:none;">📞 Appeler maintenant</a></div>
       <div class="badge">Vos courses à domicile • Région de Philippeville</div>
       <h1>Simple, rapide et local</h1>
       <p>Commandez avant midi et recevez vos courses le jour même (selon disponibilité). Service humain, rapide et flexible.</p>
@@ -148,11 +149,7 @@
 
         <label class="chip" style="margin-top:12px"><input type="checkbox" id="policy" required aria-required="true"> <span>J’accepte que mes données soient utilisées pour organiser ma commande (non partagées à des tiers).</span></label>
 
-        <div class="actions">
-          <button class="btn btn-whatsapp" type="button" id="waBtn" aria-label="Envoyer via WhatsApp">Envoyer via WhatsApp</button>
-          <button class="btn btn-email" type="button" id="emailBtn" aria-label="Envoyer par e-mail">Envoyer par e‑mail</button>
-          <button class="btn btn-ghost" type="button" id="previewBtn" aria-label="Voir l'aperçu">Aperçu</button>
-        </div>
+        <div class="actions"><p class="hint" style="text-align:center;margin:0 0 6px;">⚠️ Vos photos ne peuvent pas être jointes automatiquement. <strong>Ajoutez-les en pièce jointe dans WhatsApp</strong> après l’envoi.</p><button class="btn btn-whatsapp" type="button" id="waBtn" aria-label="Envoyer via WhatsApp">Envoyer via WhatsApp</button><button class="btn btn-ghost" type="button" id="previewBtn" aria-label="Voir l'aperçu">Aperçu</button></div>
 
         <details id="recapBox" open style="margin-top:16px">
           <summary>Récapitulatif de votre demande</summary>
@@ -194,8 +191,7 @@
     const capExpected = document.getElementById('capExpected');
 
     const waBtn = document.getElementById('waBtn');
-    const emailBtn = document.getElementById('emailBtn');
-    const previewBtn = document.getElementById('previewBtn');
+const previewBtn = document.getElementById('previewBtn');
 
     function beep(){
       try{
@@ -281,7 +277,12 @@
       const shops = [...form.querySelectorAll('input[name="shops"]:checked')].map(x=>x.value).join(', ');
       const files = photos.files && photos.files.length ? [...photos.files].map(f=>f.name).join(', ') : '—';
       const medLine = medAssist.checked ? `\nRendez-vous médical : ${form.apptDate.value} ${form.apptTime.value} • ${form.apptPlace.value} • Durée estimée : ${form.hours.value || '—'} h` : '';
-      return `Commande / Service – Vos courses à domicile (Philippeville)\n\n`+
+      return `Commande / Service – Vos courses à domicile (Philippeville)
+
+`+
+`(Merci d’ajouter vos photos en pièce jointe dans WhatsApp)
+
+`+
         `Service : ${form.service.value || '—'}\n`+
         `Commerces/Services : ${shops || '—'}${medAssist.checked ? ', Accompagnement médical' : ''}\n`+
         `Créneau : ${form.slot.value || '—'}\n`+
@@ -322,16 +323,6 @@
       window.open(url, '_blank');
     });
 
-    emailBtn.addEventListener('click', ()=>{
-      if(!validateAll()) return;
-      const msg = buildMessage();
-      const subject = encodeURIComponent('Commande / Service – Vos courses à domicile (Philippeville)');
-      const body = encodeURIComponent(msg);
-      showToast('✅ <strong>Votre commande a bien été envoyée.</strong><br>Merci d’avoir fait appel à notre service local !<br>📞 Nous vous recontacterons dans les plus brefs délais pour la confirmer.<br><em>— L’équipe Vos Courses à Domicile Philippeville • 0494 / 11.86.82</em>');
-      setTimeout(()=>{
-        window.location.href = `mailto:milanolove07@msn.com?subject=${subject}&body=${body}`;
-      }, 200);
-    });
-  </script>
+    </script>
 </body>
 </html>
