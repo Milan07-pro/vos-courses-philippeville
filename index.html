@@ -90,8 +90,7 @@
           <label class="chip"><input type="checkbox" name="shops" value="Pharmacie"> Pharmacie</label>
           <label class="chip"><input type="checkbox" name="shops" value="Supermarché"> Supermarché</label>
           <label class="chip"><input type="checkbox" id="medAssist" name="medAssist" value="Accompagnement médical"> Accompagnement médical (10 € / heure)</label>
-        <p class="hint" style="text-align:right;margin:6px 4px 0;"><button type="button" id="clearShops" class="btn btn-ghost" style="padding:6px 10px;">Tout décocher</button></p></fieldset>
-<p class="hint" style="text-align:right;margin:6px 4px 0;"><button type="button" id="clearOptions" class="btn btn-ghost" style="padding:6px 10px;">Tout décocher (options)</button></p>
+        </fieldset>
 
         <div id="medBlock" class="highlight" style="display:none;margin-top:10px;">
           <label class="required" for="apptDate">Date du rendez-vous</label>
@@ -335,44 +334,28 @@
       }, 200);
     });
   
-    // --- Clear helpers ---
-    const clearService = document.getElementById('clearService');
-    if(clearService){
-      clearService.addEventListener('click', ()=>{
-        [...form.querySelectorAll('input[name="service"]')].forEach(r=>r.checked=false);
-        updateRecap();
-        showToast('Sélection de formule annulée.');
-      });
-    }
-    const clearShops = document.getElementById('clearShops');
-    if(clearShops){
-      clearShops.addEventListener('click', ()=>{
-        [...form.querySelectorAll('input[name="shops"]')].forEach(c=>c.checked=false);
-        updateRecap();
-        showToast('Commerces décochés.');
-      });
-    }
-    const clearOptions = document.getElementById('clearOptions');
-    if(clearOptions){
-      clearOptions.addEventListener('click', ()=>{
-        const med = document.getElementById('medAssist');
-        const home = document.getElementById('homeAssist');
-        if(med){ med.checked=false; }
-        if(home){ home.checked=false; }
-        toggleMed();
-        updateRecap();
-        showToast('Options décochées.');
-      });
-    }
-    const resetBtn = document.getElementById('resetBtn');
-    if(resetBtn){
-      resetBtn.addEventListener('click', ()=>{
-        form.reset();
-        toggleMed();
-        updateRecap();
-        showToast('Formulaire réinitialisé.');
-      });
-    }
+  // --- Permet de décocher une formule (Essentielle / Confort / Sérénité) en recliquant ---
+  document.querySelectorAll('input[name="service"]').forEach(radio => {
+    radio.addEventListener('click', function() {
+      if (this.previousChecked) {
+        this.checked = false;
+      }
+      document.querySelectorAll('input[name="service"]').forEach(r => r.previousChecked = false);
+      this.previousChecked = this.checked;
+      if (typeof updateRecap === 'function') updateRecap();
+    });
+  });
+
+  // --- Bouton Réinitialiser ---
+  const resetBtn = document.getElementById('resetBtn');
+  if (resetBtn){
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      if (typeof toggleMed === 'function') toggleMed();
+      if (typeof updateRecap === 'function') updateRecap();
+      if (typeof showToast === 'function') showToast('Formulaire réinitialisé.');
+    });
+  }
 
 </script>
 </body>
