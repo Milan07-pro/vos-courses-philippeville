@@ -44,8 +44,8 @@
     .service-box .intro{ font-weight:800; margin-bottom:8px; font-size:1.15rem; }
     .plans{ display:grid; gap:10px; max-width:520px; margin:0 auto; }
     .plan{ background:#fff; border:2px solid #9edbb0; border-radius:16px; padding:14px 16px; display:flex; align-items:center; justify-content:center; gap:10px; font-weight:600; text-align:center; flex-wrap:nowrap;  transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease; cursor:pointer; }
-    .star{ font-size:1.2rem; color:#d4a017; margin-right:4px; }
-    .plan input{ width:22px; height:22px; accent-color:var(--accent); }
+    .star{ font-size:1rem; line-height:1; color:#d4a017; margin-right:4px; }
+    .plan input{ width:20px; height:20px; accent-color:var(--accent); }
     .plan:has(input:checked){ border-color:var(--accent); box-shadow:0 8px 20px rgba(47,109,65,.18); background:#f0faf5;}
     .choices{ display:grid; grid-template-columns:1fr; gap:12px; }
     .chip{ display:flex; align-items:center; gap:12px; border:2px solid #e6eee8; padding:14px 16px; border-radius:16px; background:#fff; cursor:pointer; }
@@ -337,6 +337,25 @@ const previewBtn = document.getElementById('previewBtn');
       window.open(url, '_blank');
     });
 
-    </script>
+    
+    // --- Toggle deselect for service radios ---
+    const serviceRadios = form.querySelectorAll('input[name="service"]');
+    let lastCheckedRadio = null;
+    serviceRadios.forEach(r => {
+      r.addEventListener('click', (e) => {
+        if (r === lastCheckedRadio) {
+          // Uncheck if clicking the same selected radio
+          r.checked = false;
+          lastCheckedRadio = null;
+          updateRecap();
+          showToast('✅ Formule désélectionnée');
+          e.preventDefault();
+        } else {
+          lastCheckedRadio = r;
+        }
+      });
+    });
+
+</script>
 </body>
 </html>
