@@ -7,15 +7,15 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="description" content="Commandes de courses à domicile et accompagnement médical dans la région de Philippeville. Simple, rapide et local.">
   <style>
-    :root { --bg:#1f7a38; --card:#ffffff; --accent:#ffffff; --accent-2:#e8f6ee; --text:#0f2a18; --muted:#eaf7ee; --danger:#b71c1c; --focus:#ffcc00; --shadow:0 10px 28px rgba(0,0,0,.18); --radius:20px; --radius-lg:24px; --font-base:18px; --font-big:20px; }
-    html, body { height:100%; background:var(--bg); color:#ffffff; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; font-size:var(--font-base); line-height:1.55; }
+    :root { --bg:#f9f6f1; --card:#ffffff; --accent:#1f7a38; --accent-2:#bfe6c8; --text:#111111; --muted:#385245; --danger:#b71c1c; --focus:#ffcc00; --shadow:0 10px 28px rgba(0,0,0,.08); --radius:20px; --radius-lg:24px; --font-base:18px; --font-big:20px; }
+    html, body { height:100%; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; font-size:var(--font-base); line-height:1.55; }
     *{ box-sizing:border-box; }
     .container{ max-width:800px; margin:28px auto 64px; padding:0 16px; }
     header{ text-align:center; margin-bottom:18px; }
-    header .badge{ background:#fff; color:#1f7a38; display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#e8f6ee; color:var(--accent); font-weight:700; font-size:1rem; }
-    header h1{ color:#ffffff; margin:10px 0 6px; font-size:clamp(1.8rem, 1.2rem + 2vw, 2.4rem); letter-spacing:.2px; }
+    header .badge{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#e8f6ee; color:var(--accent); font-weight:700; font-size:1rem; }
+    header h1{ margin:10px 0 6px; font-size:clamp(1.8rem, 1.2rem + 2vw, 2.4rem); letter-spacing:.2px; }
     header p{ margin:0; color:var(--muted); }
-    .card{ background:var(--card); color:#111; border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:24px; }
+    .card{ background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:24px; }
     .step{ display:flex; align-items:center; gap:12px; margin:18px 0 12px; }
     .step .num{ width:38px; height:38px; border-radius:50%; background:var(--accent); color:#fff; display:grid; place-items:center; font-weight:800; font-size:1.1rem; }
     .step h2{ margin:0; color:var(--accent); font-size:1.3rem; }
@@ -38,11 +38,11 @@
     .divider{ height:2px; background:#e4efe8; margin:18px 0; border-radius:2px; }
     .actions{ display:grid; gap:10px; justify-items:center; margin-top:18px; }
     .btn{ appearance:none; border:none; border-radius:999px; padding:16px 22px; font-weight:900; cursor:pointer; font-size:1.1rem; }
-    .btn-primary{ background:#0f4f26; color:#fff; box-shadow:0 8px 18px rgba(31,122,56,.25); }
+    .btn-primary{ background:var(--accent); color:#fff; box-shadow:0 8px 18px rgba(31,122,56,.25); }
     .btn-ghost{ background:#eaf7ee; color:var(--accent); border:2px solid var(--accent); border-radius:14px; font-weight:800; }
     .btn-whatsapp{ background:#25D366; color:#fff; width:min(560px, 100%); }
     .btn-email{ background:#ffffff; color:var(--accent); border:2px solid var(--accent); width:min(520px, 100%); }
-    details{ background:#f0faf3; border:2px solid #d3ead9; border-radius:16px; padding:14px 16px; }
+    details{ background:#f5fbf6; border:2px solid #d3ead9; border-radius:16px; padding:14px 16px; }
     details[open] summary{ border-bottom:2px dashed #d3ead9; padding-bottom:8px; margin-bottom:10px; }
     details summary{ cursor:pointer; font-weight:900; color:var(--accent); font-size:1.1rem; }
     details ul{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
@@ -60,11 +60,10 @@
 <body>
   <div class="container">
     <header>
-  <img src="logo-basket.png" alt="voscourses.be" style="width:108px;height:auto;margin:6px auto 8px;display:block;">
 <div style="margin:10px 0;"><a href="tel:+32494118682" class="btn btn-primary" style="display:inline-block;text-decoration:none;">📞 Appeler maintenant</a></div>
       <div class="badge">Vos courses à domicile • Région de Philippeville</div>
       <h1>Simple, rapide et local</h1>
-      <p style="color:#eaf7ee">Commandez avant midi et recevez vos courses le jour même (selon disponibilité). Service humain, rapide et flexible.</p>
+      <p>Commandez avant midi et recevez vos courses le jour même (selon disponibilité). Service humain, rapide et flexible.</p>
     </header>
 
     <main class="card" role="main">
@@ -166,7 +165,7 @@
       </form>
     </main>
 
-    <footer style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">© Vos courses à domicile sur Philippeville • Zone couverte : villages aux alentours de Philippeville<img src="logo-assist.png" alt="accompagnement voscourses.be" style="height:56px;width:auto;flex-shrink:0;border-radius:12px;background:#1f7a38;padding:0;"></footer>
+    <footer>© Vos courses à domicile – Philippeville • Zone couverte : région de Philippeville</footer>
   </div>
 
   <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
