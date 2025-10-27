@@ -7,26 +7,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="description" content="Commandes de courses à domicile et accompagnement médical dans la région de Philippeville. Simple, rapide et local.">
   <style>
-    :root {
-  --bg:#fbfaf7;         /* warm off‑white */
-  --card:#ffffff;
-  --accent:#2f6d41;     /* calm green */
-  --accent-2:#e8f4ee;   /* soft green tint */
-  --text:#1e1e1e;       /* dark text */
-  --muted:#4b5a53;      /* softer muted */
-  --danger:#b71c1c;
-  --focus:#ffd45e;
-  --shadow:0 8px 20px rgba(0,0,0,.06);
-  --radius:20px;
-  --radius-lg:24px;
-  --font-base:18px;
-  --font-big:20px;
-}
+    :root { --bg:#f9f6f1; --card:#ffffff; --accent:#1f7a38; --accent-2:#bfe6c8; --text:#111111; --muted:#385245; --danger:#b71c1c; --focus:#ffcc00; --shadow:0 10px 28px rgba(0,0,0,.08); --radius:20px; --radius-lg:24px; --font-base:18px; --font-big:20px; }
     html, body { height:100%; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; font-size:var(--font-base); line-height:1.55; }
     *{ box-sizing:border-box; }
-    .container{ max-width:860px; margin:24px auto 72px; padding:0 16px; }
+    .container{ max-width:800px; margin:28px auto 64px; padding:0 16px; }
     header{ text-align:center; margin-bottom:18px; }
-    header .badge{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#f2f8f4; color:var(--accent); font-weight:700; font-size:1rem; }
+    header .badge{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#e8f6ee; color:var(--accent); font-weight:700; font-size:1rem; }
     header h1{ margin:10px 0 6px; font-size:clamp(1.8rem, 1.2rem + 2vw, 2.4rem); letter-spacing:.2px; }
     header p{ margin:0; color:var(--muted); }
     .card{ background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:24px; }
@@ -37,24 +23,22 @@
     .hint{ font-size:0.95rem; color:var(--muted); margin:6px 0 10px; }
     label{ display:block; margin:10px 0 8px; font-weight:700; font-size:var(--font-big); }
     .required::after{ content:" *"; color:var(--danger); font-weight:900; }
-    input[type=text], input[type=tel], input[type=email], input[type=datetime-local], textarea, select, input[type=date], input[type=time]{ width:100%; padding:14px 16px; border-radius:16px; border:2px solid #e6eee8; background:#fff; font-size:1.05rem; }
+    input[type=text], input[type=tel], input[type=email], input[type=datetime-local], textarea, select, input[type=date], input[type=time]{ width:100%; padding:14px 16px; border-radius:16px; border:2px solid #dbe7df; background:#fff; font-size:1.05rem; }
     textarea{ min-height:120px; resize:vertical; }
     .highlight{ background:#fffbe6; border:2px solid #ffe08a; padding:14px; border-radius:16px; }
     .service-box{ background:var(--accent-2); border:2px solid #9edbb0; border-radius:20px; padding:16px; text-align:center; }
     .service-box .intro{ font-weight:800; margin-bottom:8px; font-size:1.15rem; }
-    .plans{ display:grid; gap:12px; max-width:640px; margin:0 auto; align-items:stretch; }
-    .plan{ background:#fff; border:2px solid #9edbb0; border-radius:16px; padding:14px 18px; display:flex; align-items:center; justify-content:center; gap:12px; font-weight:600; text-align:center; flex-wrap:nowrap; transition:transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease; cursor:pointer; min-height:58px; }
-    .plan:hover{ transform:scale(1.03); background:#e3f5eb; border-color:#79c89a; box-shadow:0 12px 26px rgba(0,0,0,.14);}
-    .star{ font-size:1rem; line-height:1; color:#d4a017; margin-right:4px; }
-    .plan input{ width:20px; height:20px; accent-color:var(--accent); display:inline-block; }
-    .plan:has(input:checked){ border-color:var(--accent); box-shadow:0 8px 20px rgba(47,109,65,.18); background:#f0faf5;}
+    .plans{ display:grid; gap:10px; max-width:520px; margin:0 auto; }
+    .plan{ background:#fff; border:2px solid #9edbb0; border-radius:16px; padding:12px 14px; display:flex; align-items:center; gap:12px; justify-content:center; }
+    .star{ font-size:1.2rem; color:#d4a017; }
+    .plan input{ width:22px; height:22px; accent-color:var(--accent); }
     .choices{ display:grid; grid-template-columns:1fr; gap:12px; }
-    .chip{ display:flex; align-items:center; gap:12px; border:2px solid #e6eee8; padding:14px 16px; border-radius:16px; background:#fff; cursor:pointer; }
+    .chip{ display:flex; align-items:center; gap:12px; border:2px solid #dbe7df; padding:14px 16px; border-radius:16px; background:#fff; cursor:pointer; }
     .chip input{ width:22px; height:22px; accent-color:var(--accent); }
     .divider{ height:2px; background:#e4efe8; margin:18px 0; border-radius:2px; }
     .actions{ display:grid; gap:10px; justify-items:center; margin-top:18px; }
     .btn{ appearance:none; border:none; border-radius:999px; padding:16px 22px; font-weight:900; cursor:pointer; font-size:1.1rem; }
-    .btn-primary{ background:var(--accent); color:#fff; box-shadow:0 6px 14px rgba(47,109,65,.18); }
+    .btn-primary{ background:var(--accent); color:#fff; box-shadow:0 8px 18px rgba(31,122,56,.25); }
     .btn-ghost{ background:#eaf7ee; color:var(--accent); border:2px solid var(--accent); border-radius:14px; font-weight:800; }
     .btn-whatsapp{ background:#25D366; color:#fff; width:min(560px, 100%); }
     .btn-email{ background:#ffffff; color:var(--accent); border:2px solid var(--accent); width:min(520px, 100%); }
@@ -71,12 +55,7 @@
       color:#fff; padding:16px 20px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,.2); opacity:0; pointer-events:none; transition:opacity .25s ease; font-weight:800; text-align:center; max-width:min(90vw, 720px); }
     #toast.show{ opacity:1; }
     #toast small{ display:block; font-weight:600; opacity:.95; }
-  
-    @media (min-width: 540px){
-      .plan { white-space: nowrap; }
-    }
-
-</style>
+  </style>
 </head>
 <body>
   <div class="container">
@@ -92,9 +71,9 @@
         <div class="service-box" aria-labelledby="service-legend">
           <div class="intro">Choisissez la formule qui vous convient le mieux 👇</div>
           <fieldset class="plans">
-            <label class="plan"><input type="radio" name="service" value="Essentielle" required aria-required="true"><span><strong>Essentielle</strong> — 1 livraison / semaine (15 €)</span></label>
-            <label class="plan"><input type="radio" name="service" value="Confort"><span><strong>Confort</strong> — 2 livraisons / semaine (20 €)</span></label>
-            <label class="plan"><input type="radio" name="service" value="Sérénité"><span><strong>Sérénité</strong> — 3 livraisons / semaine (25 €)</span></label>
+            <label class="plan"><input type="radio" name="service" value="Essentielle" required aria-required="true"><span class="star">⭐</span><span><strong>Essentielle</strong> — 1 livraison / semaine (15 €)</span></label>
+            <label class="plan"><input type="radio" name="service" value="Confort"><span class="star">⭐⭐</span><span><strong>Confort</strong> — 2 livraisons / semaine (20 €)</span></label>
+            <label class="plan"><input type="radio" name="service" value="Sérénité"><span class="star">⭐⭐⭐</span><span><strong>Sérénité</strong> — 3 livraisons / semaine (25 €)</span></label>
           </fieldset>
           <div class="hint" style="margin-top:8px;text-align:center;border-top:1px solid #cfe9d6;padding-top:8px;">Besoin d’aide pour choisir ? Appelez-nous au <strong>0494 / 11.86.82</strong>.</div>
         </div>
@@ -102,7 +81,7 @@
         <div class="divider" role="separator" aria-hidden="true"></div>
 
         <div class="step" aria-label="Étape 2"><div class="num">2</div><h2>Vos commerces et services</h2></div>
-        <p class="hint">Vous pouvez cocher plusieurs arrêts : boulangerie, boucherie, ferme, pharmacie, supermarché. Vous pouvez aussi ajouter un accompagnement médical (10 €/h + 0,50 €/km aller-retour).</p>
+        <p class="hint">Vous pouvez cocher plusieurs arrêts : boulangerie, boucherie, ferme, pharmacie, supermarché. Vous pouvez aussi ajouter un accompagnement médical (10 € / heure).</p>
         <fieldset class="choices highlight" aria-labelledby="shops-legend">
           <legend id="shops-legend" class="sr-only" style="position:absolute;left:-9999px">Commerces et services</legend>
           <label class="chip"><input type="checkbox" name="shops" value="Boulangerie"> Boulangerie</label>
@@ -110,7 +89,15 @@
           <label class="chip"><input type="checkbox" name="shops" value="Ferme"> Ferme</label>
           <label class="chip"><input type="checkbox" name="shops" value="Pharmacie"> Pharmacie</label>
           <label class="chip"><input type="checkbox" name="shops" value="Supermarché"> Supermarché</label>
-          <label class="chip"><input type="checkbox" id="medAssist" name="medAssist" value="Accompagnement médical"> Accompagnement médical (10 €/h + 0,50 €/km aller-retour)</label>
+          <label class="chip"><input type="checkbox" id="medAssist" name="medAssist" value="Accompagnement médical"> Accompagnement médical (10 € / heure)</label>
+        </fieldset>
+
+        <div class="divider"></div>
+        <div class="step" aria-label="Étape 2b"><div class="num">2b</div><h2>Aide pratique à domicile</h2></div>
+        <fieldset class="choices highlight" aria-labelledby="homeassist-legend">
+          <legend id="homeassist-legend" class="sr-only" style="position:absolute;left:-9999px">Aide pratique</legend>
+          <label class="chip"><input type="checkbox" id="homeAssist" name="homeAssist" value="Aide rangement"> 🏡 Aide au rangement des courses à domicile (+5 €)
+          <span class="hint" style="display:block;margin-top:6px">Pour les produits lourds ou encombrants (packs d’eau, cartons, sacs…)</span></label>
         </fieldset>
 
         <div id="medBlock" class="highlight" style="display:none;margin-top:10px;">
@@ -169,11 +156,16 @@
 
         <label class="chip" style="margin-top:12px"><input type="checkbox" id="policy" required aria-required="true"> <span>J’accepte que mes données soient utilisées pour organiser ma commande (non partagées à des tiers).</span></label>
 
-        <div class="actions"><p class="hint" style="text-align:center;margin:0 0 6px;">📎 Les photos ne partent pas automatiquement — <strong>ajoutez-les en pièce jointe dans WhatsApp</strong> après l’envoi.</p><button class="btn btn-whatsapp" type="button" id="waBtn" aria-label="Envoyer via WhatsApp">Envoyer via WhatsApp</button><button class="btn btn-ghost" type="button" id="previewBtn" aria-label="Voir l'aperçu">Aperçu</button></div>
+        <div class="actions">
+          <button class="btn btn-whatsapp" type="button" id="waBtn" aria-label="Envoyer via WhatsApp">Envoyer via WhatsApp</button>
+          <button class="btn btn-email" type="button" id="emailBtn" aria-label="Envoyer par e-mail">Envoyer par e‑mail</button>
+          <button class="btn btn-ghost" type="button" id="previewBtn" aria-label="Voir l'aperçu">Aperçu</button>
+        </div>
 
         <details id="recapBox" open style="margin-top:16px">
           <summary>Récapitulatif de votre demande</summary>
           <ul>
+            <li id="recapHomeAssistRow" style="display:none"><span>Aide au rangement</span><strong id="recapHomeAssist">—</strong></li>
             <li><span>Service</span><strong id="recapService">—</strong></li>
             <li><span>Commerces / services</span><strong id="recapShops">—</strong></li>
             <li id="recapMedRow" style="display:none"><span>Rendez-vous médical</span><strong id="recapMed">—</strong></li>
@@ -181,11 +173,13 @@
             <li><span>Créneau</span><strong id="recapSlot">—</strong></li>
             <li><span>Adresse</span><strong id="recapAddress">—</strong></li>
           </ul>
+<div class="divider" style="margin-top:12px"></div>
+<p class="hint" style="margin:8px 0 6px"><strong>Total estimé : <span id="totalEstime">—</span></strong> <br><small>(hors accompagnement médical au km : 10 €/h + 0,50 €/km AR)</small></p>
         </details>
       </form>
     </main>
 
-    <footer>© Vos courses à domicile sur Philippeville • Zone couverte : villages aux alentours de Philippeville</footer>
+    <footer>© Vos courses à domicile – Philippeville • Zone couverte : région de Philippeville</footer>
   </div>
 
   <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -203,6 +197,21 @@
     const recapMed = document.getElementById('recapMed');
 
     const photos = document.getElementById('photos');
+    const homeAssist = document.getElementById('homeAssist');
+    const recapHomeAssistRow = document.getElementById('recapHomeAssistRow');
+    const recapHomeAssist = document.getElementById('recapHomeAssist');
+    const totalEstime = document.getElementById('totalEstime');
+
+    function computeTotal(){
+      let base = 0;
+      const svc = form.service.value;
+      if(svc === 'Essentielle') base = 15;
+      else if(svc === 'Confort') base = 20;
+      else if(svc === 'Sérénité') base = 25;
+      if(homeAssist && homeAssist.checked) base += 5;
+      return base > 0 ? base.toFixed(2).replace('.', ',') + ' €' : '—';
+    }
+
     const recapFilesRow = document.getElementById('recapFilesRow');
     const recapFiles = document.getElementById('recapFiles');
 
@@ -211,7 +220,8 @@
     const capExpected = document.getElementById('capExpected');
 
     const waBtn = document.getElementById('waBtn');
-const previewBtn = document.getElementById('previewBtn');
+    const emailBtn = document.getElementById('emailBtn');
+    const previewBtn = document.getElementById('previewBtn');
 
     function beep(){
       try{
@@ -254,6 +264,14 @@ const previewBtn = document.getElementById('previewBtn');
       recapShops.textContent = shops.length ? shops.join(', ') + (medAssist.checked ? ', Accompagnement médical' : '') : (medAssist.checked ? 'Accompagnement médical' : '—');
       recapSlot.textContent = slot;
       recapAddress.textContent = address;
+      if(homeAssist && homeAssist.checked){
+        recapHomeAssist.textContent = '+5 € (rangement à domicile)';
+        recapHomeAssistRow.style.display = '';
+      } else {
+        recapHomeAssist.textContent = '—';
+        recapHomeAssistRow.style.display = 'none';
+      }
+      if(totalEstime){ totalEstime.textContent = computeTotal(); }
 
       if(medAssist.checked){
         const d = form.apptDate?.value ? new Date(form.apptDate.value) : null;
@@ -261,7 +279,7 @@ const previewBtn = document.getElementById('previewBtn');
         const timeStr = form.apptTime?.value || 'heure non précisée';
         const place = form.apptPlace?.value || 'lieu non précisé';
         const hours = form.hours?.value || '—';
-        recapMed.textContent = `${dateStr} • ${timeStr} • ${place} • durée estimée : ${hours} h (10 €/h + 0,50 €/km AR)`;
+        recapMed.textContent = `${dateStr} • ${timeStr} • ${place} • durée estimée : ${hours} h`;
         recapMedRow.style.display = '';
       } else {
         recapMed.textContent = '—';
@@ -281,6 +299,7 @@ const previewBtn = document.getElementById('previewBtn');
     function toggleMed(){ medBlock.style.display = medAssist.checked ? '' : 'none'; }
 
     document.addEventListener('input', ()=>{ toggleMed(); updateRecap(); });
+    if(homeAssist){ homeAssist.addEventListener('change', updateRecap); }
     document.addEventListener('change', ()=>{ toggleMed(); updateRecap(); });
     photos.addEventListener('change', updateRecap);
 
@@ -297,12 +316,7 @@ const previewBtn = document.getElementById('previewBtn');
       const shops = [...form.querySelectorAll('input[name="shops"]:checked')].map(x=>x.value).join(', ');
       const files = photos.files && photos.files.length ? [...photos.files].map(f=>f.name).join(', ') : '—';
       const medLine = medAssist.checked ? `\nRendez-vous médical : ${form.apptDate.value} ${form.apptTime.value} • ${form.apptPlace.value} • Durée estimée : ${form.hours.value || '—'} h` : '';
-      return `Commande / Service – Vos courses à domicile (Philippeville)
-
-`+
-`(Pensez à ajouter vos photos en pièce jointe dans WhatsApp)
-
-`+
+      return `Commande / Service – Vos courses à domicile (Philippeville)\n\n`+
         `Service : ${form.service.value || '—'}\n`+
         `Commerces/Services : ${shops || '—'}${medAssist.checked ? ', Accompagnement médical' : ''}\n`+
         `Créneau : ${form.slot.value || '—'}\n`+
@@ -312,7 +326,7 @@ const previewBtn = document.getElementById('previewBtn');
         `Adresse : ${form.address.value || '—'}\n`+
         `Liste / Ordonnances / Notes : ${form.list.value || '—'}\n`+
         `Pièces à joindre : ${files}\n`+
-        medLine + `\n`;
+        medLine + `\n` + (homeAssist && homeAssist.checked ? 'Aide au rangement : oui (+5 €)\n' : 'Aide au rangement : non\n') + `Total estimé (hors accompagnement médical au km) : ${computeTotal()}` + `\n`;
     }
 
     function validateAll(){
@@ -343,14 +357,23 @@ const previewBtn = document.getElementById('previewBtn');
       window.open(url, '_blank');
     });
 
-    
+    emailBtn.addEventListener('click', ()=>{
+      if(!validateAll()) return;
+      const msg = buildMessage();
+      const subject = encodeURIComponent('Commande / Service – Vos courses à domicile (Philippeville)');
+      const body = encodeURIComponent(msg);
+      showToast('✅ <strong>Votre commande a bien été envoyée.</strong><br>Merci d’avoir fait appel à notre service local !<br>📞 Nous vous recontacterons dans les plus brefs délais pour la confirmer.<br><em>— L’équipe Vos Courses à Domicile Philippeville • 0494 / 11.86.82</em>');
+      setTimeout(()=>{
+        window.location.href = `mailto:milanolove07@msn.com?subject=${subject}&body=${body}`;
+      }, 200);
+    });
+  
     // --- Toggle deselect for service radios ---
     const serviceRadios = form.querySelectorAll('input[name="service"]');
     let lastCheckedRadio = null;
     serviceRadios.forEach(r => {
       r.addEventListener('click', (e) => {
         if (r === lastCheckedRadio) {
-          // Uncheck if clicking the same selected radio
           r.checked = false;
           lastCheckedRadio = null;
           updateRecap();
@@ -361,7 +384,7 @@ const previewBtn = document.getElementById('previewBtn');
         }
       });
     });
-
+    
 </script>
 </body>
 </html>
