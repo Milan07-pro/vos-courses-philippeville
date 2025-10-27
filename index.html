@@ -7,12 +7,26 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="description" content="Commandes de courses à domicile et accompagnement médical dans la région de Philippeville. Simple, rapide et local.">
   <style>
-    :root { --bg:#f9f6f1; --card:#ffffff; --accent:#1f7a38; --accent-2:#bfe6c8; --text:#111111; --muted:#385245; --danger:#b71c1c; --focus:#ffcc00; --shadow:0 10px 28px rgba(0,0,0,.08); --radius:20px; --radius-lg:24px; --font-base:18px; --font-big:20px; }
+    :root {
+  --bg:#fbfaf7;         /* warm off‑white */
+  --card:#ffffff;
+  --accent:#2f6d41;     /* calm green */
+  --accent-2:#e8f4ee;   /* soft green tint */
+  --text:#1e1e1e;       /* dark text */
+  --muted:#4b5a53;      /* softer muted */
+  --danger:#b71c1c;
+  --focus:#ffd45e;
+  --shadow:0 8px 20px rgba(0,0,0,.06);
+  --radius:20px;
+  --radius-lg:24px;
+  --font-base:18px;
+  --font-big:20px;
+}
     html, body { height:100%; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; font-size:var(--font-base); line-height:1.55; }
     *{ box-sizing:border-box; }
-    .container{ max-width:800px; margin:28px auto 64px; padding:0 16px; }
+    .container{ max-width:860px; margin:24px auto 72px; padding:0 16px; }
     header{ text-align:center; margin-bottom:18px; }
-    header .badge{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#e8f6ee; color:var(--accent); font-weight:700; font-size:1rem; }
+    header .badge{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#f2f8f4; color:var(--accent); font-weight:700; font-size:1rem; }
     header h1{ margin:10px 0 6px; font-size:clamp(1.8rem, 1.2rem + 2vw, 2.4rem); letter-spacing:.2px; }
     header p{ margin:0; color:var(--muted); }
     .card{ background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow); padding:24px; }
@@ -23,7 +37,7 @@
     .hint{ font-size:0.95rem; color:var(--muted); margin:6px 0 10px; }
     label{ display:block; margin:10px 0 8px; font-weight:700; font-size:var(--font-big); }
     .required::after{ content:" *"; color:var(--danger); font-weight:900; }
-    input[type=text], input[type=tel], input[type=email], input[type=datetime-local], textarea, select, input[type=date], input[type=time]{ width:100%; padding:14px 16px; border-radius:16px; border:2px solid #dbe7df; background:#fff; font-size:1.05rem; }
+    input[type=text], input[type=tel], input[type=email], input[type=datetime-local], textarea, select, input[type=date], input[type=time]{ width:100%; padding:14px 16px; border-radius:16px; border:2px solid #e6eee8; background:#fff; font-size:1.05rem; }
     textarea{ min-height:120px; resize:vertical; }
     .highlight{ background:#fffbe6; border:2px solid #ffe08a; padding:14px; border-radius:16px; }
     .service-box{ background:var(--accent-2); border:2px solid #9edbb0; border-radius:20px; padding:16px; text-align:center; }
@@ -33,12 +47,12 @@
     .star{ font-size:1.2rem; color:#d4a017; }
     .plan input{ width:22px; height:22px; accent-color:var(--accent); }
     .choices{ display:grid; grid-template-columns:1fr; gap:12px; }
-    .chip{ display:flex; align-items:center; gap:12px; border:2px solid #dbe7df; padding:14px 16px; border-radius:16px; background:#fff; cursor:pointer; }
+    .chip{ display:flex; align-items:center; gap:12px; border:2px solid #e6eee8; padding:14px 16px; border-radius:16px; background:#fff; cursor:pointer; }
     .chip input{ width:22px; height:22px; accent-color:var(--accent); }
     .divider{ height:2px; background:#e4efe8; margin:18px 0; border-radius:2px; }
     .actions{ display:grid; gap:10px; justify-items:center; margin-top:18px; }
     .btn{ appearance:none; border:none; border-radius:999px; padding:16px 22px; font-weight:900; cursor:pointer; font-size:1.1rem; }
-    .btn-primary{ background:var(--accent); color:#fff; box-shadow:0 8px 18px rgba(31,122,56,.25); }
+    .btn-primary{ background:var(--accent); color:#fff; box-shadow:0 6px 14px rgba(47,109,65,.18); }
     .btn-ghost{ background:#eaf7ee; color:var(--accent); border:2px solid var(--accent); border-radius:14px; font-weight:800; }
     .btn-whatsapp{ background:#25D366; color:#fff; width:min(560px, 100%); }
     .btn-email{ background:#ffffff; color:var(--accent); border:2px solid var(--accent); width:min(520px, 100%); }
@@ -60,7 +74,6 @@
 <body>
   <div class="container">
     <header>
-<div style="margin:10px 0;"><a href="tel:+32494118682" class="btn btn-primary" style="display:inline-block;text-decoration:none;">📞 Appeler maintenant</a></div>
       <div class="badge">Vos courses à domicile • Région de Philippeville</div>
       <h1>Simple, rapide et local</h1>
       <p>Commandez avant midi et recevez vos courses le jour même (selon disponibilité). Service humain, rapide et flexible.</p>
@@ -82,7 +95,7 @@
         <div class="divider" role="separator" aria-hidden="true"></div>
 
         <div class="step" aria-label="Étape 2"><div class="num">2</div><h2>Vos commerces et services</h2></div>
-        <p class="hint">Vous pouvez cocher plusieurs arrêts : boulangerie, boucherie, ferme, pharmacie, supermarché. Vous pouvez aussi ajouter un accompagnement médical (10 €/h + 0,50 €/km aller‑retour).</p>
+        <p class="hint">Vous pouvez cocher plusieurs arrêts : boulangerie, boucherie, ferme, pharmacie, supermarché. Vous pouvez aussi ajouter un accompagnement médical (10 €/h + 0,50 €/km aller-retour).</p>
         <fieldset class="choices highlight" aria-labelledby="shops-legend">
           <legend id="shops-legend" class="sr-only" style="position:absolute;left:-9999px">Commerces et services</legend>
           <label class="chip"><input type="checkbox" name="shops" value="Boulangerie"> Boulangerie</label>
@@ -90,7 +103,7 @@
           <label class="chip"><input type="checkbox" name="shops" value="Ferme"> Ferme</label>
           <label class="chip"><input type="checkbox" name="shops" value="Pharmacie"> Pharmacie</label>
           <label class="chip"><input type="checkbox" name="shops" value="Supermarché"> Supermarché</label>
-          <label class="chip"><input type="checkbox" id="medAssist" name="medAssist" value="Accompagnement médical"> Accompagnement médical (10 €/h + 0,50 €/km aller‑retour)</label>
+          <label class="chip"><input type="checkbox" id="medAssist" name="medAssist" value="Accompagnement médical"> Accompagnement médical (10 €/h + 0,50 €/km aller-retour)</label>
         </fieldset>
 
         <div id="medBlock" class="highlight" style="display:none;margin-top:10px;">
@@ -149,7 +162,7 @@
 
         <label class="chip" style="margin-top:12px"><input type="checkbox" id="policy" required aria-required="true"> <span>J’accepte que mes données soient utilisées pour organiser ma commande (non partagées à des tiers).</span></label>
 
-        <div class="actions"><p class="hint" style="text-align:center;margin:0 0 6px;">⚠️ Vos photos ne peuvent pas être jointes automatiquement. <strong>Ajoutez-les en pièce jointe dans WhatsApp</strong> après l’envoi.</p><button class="btn btn-whatsapp" type="button" id="waBtn" aria-label="Envoyer via WhatsApp">Envoyer via WhatsApp</button><button class="btn btn-ghost" type="button" id="previewBtn" aria-label="Voir l'aperçu">Aperçu</button></div>
+        <div class="actions"><p class="hint" style="text-align:center;margin:0 0 6px;">📎 Les photos ne partent pas automatiquement — <strong>ajoutez-les en pièce jointe dans WhatsApp</strong> après l’envoi.</p><button class="btn btn-whatsapp" type="button" id="waBtn" aria-label="Envoyer via WhatsApp">Envoyer via WhatsApp</button><button class="btn btn-ghost" type="button" id="previewBtn" aria-label="Voir l'aperçu">Aperçu</button></div>
 
         <details id="recapBox" open style="margin-top:16px">
           <summary>Récapitulatif de votre demande</summary>
@@ -165,7 +178,7 @@
       </form>
     </main>
 
-    <footer>© Vos courses à domicile – Philippeville • Zone couverte : région de Philippeville</footer>
+    <footer>© Vos courses à domicile sur Philippeville • Zone couverte : villages aux alentours de Philippeville</footer>
   </div>
 
   <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -280,7 +293,7 @@ const previewBtn = document.getElementById('previewBtn');
       return `Commande / Service – Vos courses à domicile (Philippeville)
 
 `+
-`(Merci d’ajouter vos photos en pièce jointe dans WhatsApp)
+`(Pensez à ajouter vos photos en pièce jointe dans WhatsApp)
 
 `+
         `Service : ${form.service.value || '—'}\n`+
